@@ -136,6 +136,7 @@ TARGET_ENABLE_MEDIADRM_64 := true
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH := device/oneplus/oneplus3/cryptfs_hw
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Exclude serif fonts for saving system.img size.
@@ -153,7 +154,20 @@ DEVICE_SPECIFIC_GPS_PATH := $(VENDOR_PATH)/gps
 
 # HALs
 USE_DEVICE_SPECIFIC_MEDIA := true
-DEVICE_SPECIFIC_MEDIA_PATH := hardware/qcom/media-caf/msm8998
+DEVICE_SPECIFIC_MEDIA_PATH := hardware/qcom/media-caf-msm8998
+
+# CAF
+TARGET_QCOM_DISPLAY_VARIANT := caf-msm8996
+TARGET_QCOM_AUDIO_VARIANT := caf-msm8996
+TARGET_QCOM_MEDIA_VARIANT := caf-msm8996
+
+#PRODUCT_SOONG_NAMESPACES += \
+#    hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
+#    hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
+#    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
+
+# Missing Dependencies
+ALLOW_MISSING_DEPENDENCIES := true
 
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(VENDOR_PATH)/framework_manifest.xml
